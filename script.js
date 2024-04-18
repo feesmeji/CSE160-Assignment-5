@@ -39,9 +39,9 @@ function makeInstance( geometry, color, x) {
 }
 
 const cubes = [
-	makeInstance(geometry, 0x44aa88, 0),
-	makeInstance(geometry, 0x8844aa, -2),
-	makeInstance(geometry, 0xaa8844, 2),
+	makeInstance(geometry, 0xFF0000, 0),
+	makeInstance(geometry, 0x00FF00, -2),
+	makeInstance(geometry, 0x0000FF, 2),
 ];
 
 	function render(time){
