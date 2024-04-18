@@ -32,7 +32,11 @@ function main() {
 	const boxDepth = 1;
 	const geometry = new THREE.BoxGeometry( boxWidth, boxHeight, boxDepth );
 
-	const material = new THREE.MeshPhongMaterial( { color: 0x00FF00} ); // greenish blue hex number
+	const loader = new THREE.TextureLoader();
+	const texture = loader.load( 'rubber_duck.jpg');
+	texture.colorSpace = THREE.SRGBColorSpace;
+
+	const material = new THREE.MeshPhongMaterial( { map: texture} ); // greenish blue hex number
 	const cube = new THREE.Mesh( geometry, material );
 	scene.add( cube );
 
