@@ -1,6 +1,9 @@
+//got help from course tutorS
+
 console.log('Script is running!');
 
-import * as THREE from './three.module.js';
+import * as THREE from 'three';
+import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
 
 function main() {
 
@@ -8,9 +11,9 @@ function main() {
 	const renderer = new THREE.WebGLRenderer( { antialias: true, canvas } );
 
 //Camera setup
-	const fov = 75;
-	const aspect = 2; // the canvas default
-	const near = 0.1;
+	const fov = 125;
+	const aspect = 1; // the canvas default  x, width/height
+	const near = 0.1;  //y 
 	const far = 5;
 	const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
 	camera.position.z = 2;
@@ -38,6 +41,7 @@ function main() {
 
 	const material = new THREE.MeshPhongMaterial( { map: texture} ); // greenish blue hex number
 	const cube = new THREE.Mesh( geometry, material );
+	//cube.visible = false
 	scene.add( cube );
 
 
@@ -58,6 +62,16 @@ const tetrahedron = new THREE.Mesh(tetrahedron_geometry, tetrahedron_material);
 tetrahedron.position.set(1.7, 0 ,0);
 
 scene.add(tetrahedron);
+
+
+//Stuff for obj file
+//create init object 
+	const objLoader = new OBJLoader();
+	objLoader.load('./10680_Dog_v2.obj', (object) => {
+		object.scale.set(0.035, 0.035, 0.035); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers)
+		object.position.set(1.7,1.5,0)
+	  scene.add(object);
+	});
 
 //render shape
 	function render( time ) {
