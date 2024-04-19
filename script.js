@@ -1,5 +1,3 @@
-//got help from course tutorS
-
 console.log('Script is running!');
 
 import * as THREE from 'three';
@@ -68,10 +66,20 @@ scene.add(tetrahedron);
 //create init object 
 	const objLoader = new OBJLoader();
 	objLoader.load('./10680_Dog_v2.obj', (object) => {
-		object.scale.set(0.035, 0.035, 0.035); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers)
-		object.position.set(1.7,1.5,0)
-	  scene.add(object);
-	});
+	object.scale.set(0.038, 0.038, 0.038); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(1.7,1.5,0)    //I added the appropriate numbers to get close to the cube
+	scene.add(object);
+    // Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+    object.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+            const dogTexture = loader.load('grasslight-big.jpg');
+            child.material.map = dogTexture;
+        }
+    });
+});
+
+
 
 //render shape
 	function render( time ) {
