@@ -4,11 +4,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Assignment 5.A</title>
+    <title>CSE160: Assignment 5.A</title>
   </head>
   <body onload="main()">
-    <h1>Fernando Mejia</h1>
-    <p>UCSC Email: feesmeji@ucsc.edu</p>
+    <h1>CSE 160 Assignment 5A: Exploring a High-Level Graphics Library</h1>
+    <p>Author: Fernando Mejia</p>
+
+    <p><b>Description: Initial development of a virtual dog park built using Three.js.</b></p>
     
     <p>Notes to grader: Most code based off of threejs.org guides that were linked on assignment 5.A instructions. ChatGPT sometimes helped me debug and get unstuck with my code, and I made comments in my code indicating where it was used. Also recieved help from a course tutor.
     </p>
@@ -22,6 +24,13 @@
         }
     </script>
     <script type="module" src="./script.js"></script>
+
+    <p id="last-modified"><i></i></p>
+    
+    <script>
+    let text = "Last modified: ";
+    document.getElementById("last-modified").innerHTML = '<i>' + text + document.lastModified + '</i>';
+    </script>
     </body>
 </html>
 
