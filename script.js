@@ -104,3 +104,5 @@ scene.add(tetrahedron);
 
 }
 main();
+
+//Assignment notes to grader: Most code based off of threejs.org guides that were linked on assignment 5.A instructions. ChatGPT sometimes helped me debug and get unstuck with my code, and I made comments in my code indicating where it was used. Also recieved help from a course tutor.
